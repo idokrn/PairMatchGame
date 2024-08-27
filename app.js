@@ -11,19 +11,6 @@ function on() {
     document.getElementById("topper").hidden = true;
 }
 
-
-function off() {
-    pairs = document.getElementById("pairs").value;
-    if (pairs < 1 || pairs > 15) {
-        alert("number of pairs must be between 1 and 15");
-        return;
-    }
-    document.getElementById("overlay").style.display = "none";
-    document.getElementById("gameover").style.display = "none";
-    document.getElementById("card-grid").hidden = false;
-    document.getElementById("topper").hidden = false;
-}
-
 function shuffle(array) { 
   for (let i = array.length - 1; i > 0; i--) { 
     const j = Math.floor(Math.random() * (i + 1)); 
@@ -114,8 +101,16 @@ function reset() {
     on()
 }
 
-function game_start(){
-    off()
+function game_start() {
+    let pairs = document.getElementById("pairs").value;
+    if (pairs < 1 || pairs > 15) {
+        alert("number of pairs must be between 1 and 15");
+        return
+    }
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("gameover").style.display = "none";
+    document.getElementById("card-grid").hidden = false;
+    document.getElementById("topper").hidden = false;
     init_game()
 }
 
